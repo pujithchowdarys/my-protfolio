@@ -34,7 +34,7 @@ const App: React.FC = () => {
     <div className="bg-gray-50 min-h-screen text-gray-800">
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      <main className="pt-[180px] md:pt-[150px] lg:pt-[130px]"> {/* Adjust padding for fixed header */}
+      <main className="pt-[var(--header-height)]"> {/* Adjust padding for fixed header */}
         {renderSection()}
       </main>
 

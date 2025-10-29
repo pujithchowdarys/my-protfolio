@@ -11,6 +11,8 @@ const SocialMediaLink: React.FC<SocialMediaLinkProps> = ({ link }) => {
       case 'YouTube': return 'text-red-600';
       case 'Facebook': return 'text-blue-600';
       case 'Instagram': return 'text-pink-600';
+      case 'LinkedIn': return 'text-blue-700';
+      case 'X': return 'text-gray-800'; // Assuming 'X' (Twitter) is dark themed or neutral
       default: return 'text-gray-600';
     }
   };
@@ -20,7 +22,7 @@ const SocialMediaLink: React.FC<SocialMediaLinkProps> = ({ link }) => {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border border-gray-200 transform hover:-translate-y-1"
+      className="flex items-center p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border border-gray-200 transform hover:-translate-y-1"
     >
       {link.icon && (
         <svg className={`w-8 h-8 mr-4 ${getIconColor(link.platform)}`} fill="currentColor" viewBox="0 0 24 24">

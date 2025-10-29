@@ -85,7 +85,7 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[70vh] max-h-[800px] bg-gray-100 rounded-lg shadow-xl overflow-hidden border border-gray-200">
+    <div className="flex flex-col h-[70vh] max-h-[800px] bg-gray-100 rounded-xl shadow-xl overflow-hidden border border-gray-200">
       <div className="flex-grow overflow-y-auto p-4 space-y-4">
         {messages.length === 0 && (
           <div className="text-center text-gray-500 mt-12">
@@ -98,9 +98,9 @@ const Chatbot: React.FC = () => {
             className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-[70%] p-3 rounded-lg shadow-md ${
+              className={`max-w-[70%] p-3 rounded-xl shadow-md ${
                 message.sender === 'user'
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-blue-600 text-white' // Darker blue for user messages
                   : 'bg-white text-gray-800 border border-gray-200'
               }`}
             >
@@ -132,7 +132,7 @@ const Chatbot: React.FC = () => {
         ))}
         {isLoading && messages.length > 0 && messages[messages.length - 1].sender === 'user' && (
              <div className="flex justify-start">
-               <div className="max-w-[70%] p-3 rounded-lg shadow-md bg-white text-gray-800 border border-gray-200">
+               <div className="max-w-[70%] p-3 rounded-xl shadow-md bg-white text-gray-800 border border-gray-200">
                  <div className="mt-1">
                   <span className="inline-flex items-center justify-center h-2 w-2 rounded-full bg-blue-300 animate-pulse mr-1"></span>
                   <span className="inline-flex items-center justify-center h-2 w-2 rounded-full bg-blue-300 animate-pulse animation-delay-100 mr-1"></span>

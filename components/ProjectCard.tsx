@@ -7,11 +7,11 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border border-gray-200 overflow-hidden h-full flex flex-col">
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border border-gray-200 overflow-hidden h-full flex flex-col">
       <img
         src={project.imageUrl}
         alt={project.name}
-        className="w-full h-48 object-cover object-center"
+        className="w-full h-56 object-cover object-center aspect-video"
         loading="lazy"
       />
       <div className="p-6 flex flex-col flex-grow">
