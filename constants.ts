@@ -8,7 +8,7 @@ export const ABOUT_ME_TEXT = `Hello! I'm Pujith Sakhamuri, a Data Engineer with 
 export const PROFILE_IMAGE_SRC = './media/profile.jpg';
 
 // Base64 encoded SVG for a default profile image fallback
-export const DEFAULT_PROFILE_IMAGE_SVG_BASE64 = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMiAwYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyYzYuNjI3IDAgMTItNS4zNzMgMTItMTJTMTguNjI3IDAgMTIgMHptMCAyLjljNC42OTQgMCA4LjUgMy44MDYgOC41IDguNXMtMy44MDYgOC41LTguNSA4LjUtOC41LTMuODA2LTguNS04LjVTNy4zMDYgMi45IDEyIDIuOXptMCAzLjZjLTEuOTMzIDAtMy41IDEuNTY3LTMuNSAzLjVzMS41NjcgMy41IDMuNSAzLjUgMy41LTEuNTY3IDMuNS0zLjVjMC0xLjkzMy0xLjU2Ny0zLjUtMy41LTMuNXptMCAxMi4zYzMtMS42MzEgNC4wNzctNC44NzEgNC4wNzctNi4yMjQg0C0uNjUzLS40NzQtMi41NjktMS40NzctMi41NjktLjk3MSAwLTIuNzg2LTMuNzU0LTIuNzg2LTMuNzU0UzcuNjU0IDE0LjE3MiA2LjUxNSAxNS44MDdDOTYuNTc4IDIwLjE4NCAxMCAyMC4wMiAxMiAxOC44eiIvPjwvc3ZnPg==';
+export const DEFAULT_PROFILE_IMAGE_SVG_BASE64 = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My4wcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMiAwYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyYzYuNjI3IDAgMTItNS4zNzMgMTItMTJTMTguNjI3IDAgMTIgMHptMCAyLjljNC42OTQgMCA4LjUgMy44MDYgOC41IDguNXMtMy44MDYgOC41LTguNSA4LjUtOC41LTMuODA2LTguNS04LjVTNy4zMDYgMi45IDEyIDIuOXptMCAzLjZjLTEuOTMzIDAtMy41IDEuNTY3LTMuNSAzLjVzMS41NjcgMy41IDMuNSAzLjUgMy41LTEuNTY3IDMuNS0zLjVjMC0xLjkzMy0xLjU2Ny0zLjUtMy41LTMuNXptMCAxMi4zYzMtMS42MzEgNC4wNzctNC44NzEgNC4wNzctNi4yMjQg0C0uNjUzLS40NzQtMi41NjktMS40NzctMi41NjktLjk3MSAwLTIuNzg2LTMuNzU0LTIuNzg2LTMuNzU0UzcuNjU0IDE0LjE3MiA2LjUxNSAxNS44MDdDOTYuNTc4IDIwLjE4NCAxMCAyMC4wMiAxMiAxOC44eiIvPjwvc3ZnPg==';
 
 export const CAREER_EXPERIENCE: Experience[] = [
   {
@@ -253,9 +253,54 @@ export const CATEGORIZED_SOCIAL_MEDIA_LINKS: { [key: string]: SocialMedia[] } = 
       description: "Personal snapshots and occasional tech-related visual content.",
       icon: "M7.8 2h8.4C17.684 2 18 2.316 18 3.4v8.4c0 1.084-.316 1.4-1.4 1.4H7.8C6.716 13.2 6 12.884 6 11.8V3.4C6 2.316 6.316 2 7.8 2zm0 1.4a.4.4 0 00-.4.4v7.6c0 .22.18.4.4.4h7.6a.4.4 0 00.4-.4V3.8a.4.4 0 00-.4-.4H7.8zM12 5.6a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4zm0 1.4a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM15.4 3.8a.7.7 0 11-1.4 0 .7.7 0 011.4 0z"
     }
-  ]
+  ],
+  // Added for footer quick links and follow me section
+  "General Socials": [
+    { platform: "Facebook", name: "Facebook Profile", url: "https://facebook.com/PujithSakhamuriOfficial", description: "Connect on Facebook." },
+    { platform: "Telegram", name: "Telegram Channel", url: "https://t.me/PujithSakhamuriOfficial", description: "Join my Telegram channel." },
+    { platform: "Snapchat", name: "Snapchat Profile", url: "https://snapchat.com/add/PujithSakhamuri", description: "Follow me on Snapchat." },
+  ],
 };
 
 export const CONTACT_EMAIL = "sakhamuripujith@gmail.com";
 export const PHONE_NUMBER = "+1(216)307-5432";
 export const LINKEDIN_PROFILE = "https://www.linkedin.com/in/pujith-s-284a4219b/";
+
+// SVG paths for social media icons for the footer
+export const FOOTER_SOCIAL_ICONS: { [platform: string]: { path: string; color: string; hoverColor: string; } } = {
+  YouTube: {
+    path: "M10 15l5.19-3L10 9v6m11.5-7.5c-.1 1.7-.1 3.3 0 5-.2 1.4-.4 2.8-.7 4.1-.3 1.3-.7 2.4-1.2 3.5-.5 1.1-1.1 2-1.9 2.8-.8.8-1.7 1.4-2.8 1.9-1.1.5-2.2.9-3.5 1.2-1.3.3-2.7.5-4.1.7-1.7.1-3.3.1-5 0-1.4-.2-2.8-.4-4.1-.7-1.3-.3-2.4-.7-3.5-1.2-1.1-.5-2-1.1-2.8-1.9-.8-.8-1.4-1.7-1.9-2.8-.5-1.1-.9-2.2-1.2-3.5-.3-1.3-.5-2.7-.7-4.1-.1-1.7-.1-3.3 0-5 .2-1.4.4-2.8.7-4.1.3-1.3.7-2.4 1.2-3.5.5-1.1 1.1-2 1.9-2.8.8-.8 1.7-1.4 2.8-1.9 1.1-.5 2.2-.9 3.5-1.2 1.3-.3 2.7-.5 4.1-.7 1.7-.1 3.3-.1 5 0 1.4.2 2.8.4 4.1.7 1.3.3 2.4.7 3.5 1.2 1.1.5 2 1.1 2.8 1.9.8.8 1.4 1.7 1.9 2.8.5 1.1.9 2.2 1.2 3.5.3 1.3.5 2.7.7 4.1z",
+    color: "text-red-600",
+    hoverColor: "hover:text-red-400"
+  },
+  Instagram: {
+    path: "M7.8 2h8.4C17.684 2 18 2.316 18 3.4v8.4c0 1.084-.316 1.4-1.4 1.4H7.8C6.716 13.2 6 12.884 6 11.8V3.4C6 2.316 6.316 2 7.8 2zm0 1.4a.4.4 0 00-.4.4v7.6c0 .22.18.4.4.4h7.6a.4.4 0 00.4-.4V3.8a.4.4 0 00-.4-.4H7.8zM12 5.6a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4zm0 1.4a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM15.4 3.8a.7.7 0 11-1.4 0 .7.7 0 011.4 0z",
+    color: "text-pink-600",
+    hoverColor: "hover:text-pink-400"
+  },
+  X: { // Twitter
+    path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-6.597-8.717L5.337 22H1.77l7.581-8.283L1.5 2.25H8.01l4.713 6.231L18.244 2.25zm-2.885 15.404h1.407L7.032 4.2H5.507l10.352 13.454z",
+    color: "text-gray-200", // White/light gray for X logo on dark background
+    hoverColor: "hover:text-white"
+  },
+  LinkedIn: {
+    path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
+    color: "text-blue-500",
+    hoverColor: "hover:text-blue-300"
+  },
+  Facebook: {
+    path: "M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.812c-3.311 0-4.188 1.328-4.188 4v2z",
+    color: "text-blue-700",
+    hoverColor: "hover:text-blue-500"
+  },
+  Telegram: {
+    path: "M18.364 3.518l-1.68 7.352 5.096 4.673-2.023.957-4.223-2.016-1.026 4.793-1.895-.407 1.455-6.793-6.526-3.109-1.391.66 4.88-2.316-.273-1.282zm-.924 1.096l-11.75 5.589 1.956.929 11.75-5.589-1.956-.929z",
+    color: "text-blue-400",
+    hoverColor: "hover:text-blue-200"
+  },
+  Snapchat: {
+    path: "M11.996 0c-6.627 0-12 4.093-12 9.141 0 3.064 1.549 5.864 4.018 7.625.326.231.597.47.818.708 1.487 1.621 3.242 3.193 4.896 4.542.441.365 1.01.534 1.734.534.722 0 1.29-.168 1.732-.533 1.654-1.35 3.409-2.922 4.896-4.543.221-.237.493-.476.818-.707 2.469-1.761 4.019-4.561 4.019-7.625 0-5.048-5.373-9.141-12-9.141zm-.004 1.579c5.235 0 9.5 3.228 9.5 7.562 0 2.536-1.312 4.858-3.696 6.551-.318.225-.572.457-.779.673-1.42 1.54-3.09 3.04-4.66 4.331-.383.315-.884.457-1.365.457-.482 0-.983-.142-1.366-.457-1.57-1.29-3.24-2.791-4.66-4.332-.207-.216-.461-.448-.779-.672-2.384-1.693-3.696-4.015-3.696-6.55 0-4.334 4.265-7.562 9.5-7.562z",
+    color: "text-yellow-300",
+    hoverColor: "hover:text-yellow-100"
+  }
+};
