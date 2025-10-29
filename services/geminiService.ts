@@ -1,11 +1,13 @@
-import { GoogleGenAI, Chat, GenerateContentResponse, ChatMessage as GenAIChatMessage } from "@google/genai";
+import { GoogleGenAI, Chat, GenerateContentResponse } from "@google/genai";
 import { ChatMessage } from '../types';
 import {
     PROFILE_NAME,
     ABOUT_ME_TEXT,
     CAREER_EXPERIENCE,
-    PROJECTS,
-    SOCIAL_MEDIA_LINKS,
+    // Fix: PROJECTS is now a combined array, removing individual project lists.
+    PROJECTS, 
+    // Fix: Replaced SOCIAL_MEDIA_LINKS with CATEGORIZED_SOCIAL_MEDIA_LINKS as per constants.ts export.
+    CATEGORIZED_SOCIAL_MEDIA_LINKS,
     CONTACT_EMAIL,
     PHONE_NUMBER,
     LINKEDIN_PROFILE
@@ -33,13 +35,17 @@ function createGroundingContext(): string {
     (exp) => `  - **${exp.title}** at ${exp.company} (${exp.duration}): ${exp.responsibilities.join(' ')}`
   ).join('\n');
 
+  // Fix: Use the combined PROJECTS array.
   const formattedProjects = PROJECTS.map(
     (proj) => `  - **${proj.name}**: ${proj.description} Technologies: ${proj.technologies.join(', ')}`
   ).join('\n');
 
-  const formattedSocialMedia = SOCIAL_MEDIA_LINKS.map(
-    (link) => `  - ${link.name} (${link.platform}): ${link.url} - ${link.description || 'No description provided.'}`
-  ).join('\n');
+  // Fix: Iterate over CATEGORIZED_SOCIAL_MEDIA_LINKS which is an object of arrays.
+  const formattedSocialMedia = Object.values(CATEGORIZED_SOCIAL_MEDIA_LINKS)
+    .flat() // Flatten the arrays of links into a single array
+    .map(
+      (link) => `  - ${link.name} (${link.platform}): ${link.url} - ${link.description || 'No description provided.'}`
+    ).join('\n');
 
   return `
     You are an AI assistant specialized in answering questions about ${PROFILE_NAME}'s professional portfolio.
@@ -76,7 +82,7 @@ function createGroundingContext(): string {
 export async function sendMessageToGeminiStream(
   sessionId: string,
   userMessage: string,
-  // Updated signature for onNewChunk to pass sources
+  // Updated callback signature for onNewChunk to pass sources
   onNewChunk: (chunk: string, isDone: boolean, sources?: string[]) => void,
   onError: (error: string) => void,
 ) {
@@ -99,8 +105,9 @@ export async function sendMessageToGeminiStream(
       chatInstances.set(sessionId, chat);
     }
 
-    // Convert userMessage to GenAIChatMessage format
-    const genAIChatMessage: GenAIChatMessage = { message: userMessage };
+    // Fix: Removed incorrect type annotation 'GenAICatMessage'.
+    // The object literal is directly compatible with ChatRequest.
+    const genAIChatMessage = { message: userMessage };
 
     const responseStream = await chat.sendMessageStream(genAIChatMessage);
 
@@ -125,14 +132,18 @@ export async function sendMessageToGeminiStream(
             uniqueGroundingUrls.add(gc.maps.uri);
           }
           if (gc.maps?.placeAnswerSources) {
-            for (const pas of gc.maps.placeAnswerSources) {
-                if (pas.reviewSnippets) {
-                    for (const review of pas.reviewSnippets) {
-                        if (review.uri) {
-                            uniqueGroundingUrls.add(review.uri);
-                        }
-                    }
-                }
+            // Fix: Add Array.isArray check to ensure placeAnswerSources is iterable before looping.
+            if (Array.isArray(gc.maps.placeAnswerSources)) {
+              for (const pas of gc.maps.placeAnswerSources) {
+                  // Fix: Add Array.isArray check to ensure reviewSnippets is iterable before looping.
+                  if (pas.reviewSnippets && Array.isArray(pas.reviewSnippets)) {
+                      for (const review of pas.reviewSnippets) {
+                          if (review.uri) {
+                              uniqueGroundingUrls.add(review.uri);
+                          }
+                      }
+                  }
+              }
             }
           }
         }
