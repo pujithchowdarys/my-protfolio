@@ -107,52 +107,100 @@ export const CAREER_EXPERIENCE: Experience[] = [
 ];
 
 export const PROJECTS: Project[] = [
-  // AI/ML & Experience-Driven Projects (based on resume)
   {
-    name: "Real-time Conversational AI with LLM Integration",
-    description: "Engineered end-to-end Generative AI pipelines by integrating LangChain with various LLMs (GPT-3, LLaMA 2, BERT, T5) and backend data systems (MongoDB, MySQL) to support real-time conversational AI use cases like summarization and intelligent Q&A.",
-    technologies: ["LangChain", "LLMs (GPT-3, LLaMA 2)", "MongoDB", "MySQL", "Python", "GPT-3", "LLaMA 2", "BERT", "T5"],
-    githubLink: "https://github.com/PujithSakhamuri/genai-chatbot-project",
+    name: "My Professional Portfolio",
+    description: "A comprehensive online portfolio showcasing IT career experience, projects, GitHub repositories, and social media presence, including an AI assistant.",
+    technologies: ["React", "TypeScript", "TailwindCSS", "Gemini API", "Frontend Development"],
+    githubLink: "https://github.com/pujithchowdarys/my-protfolio",
+    liveLink: "https://pujith-sakhamuri-portfolio.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1549692520-cb4a05e55e76?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Pujiverse Creation Spark",
+    description: "An application that takes an idea and generates creative content like songs, stories, or narrations with downloadable lyrics and voiceovers in multiple languages.",
+    technologies: ["Gemini API", "AI/ML", "Content Generation", "Text-to-Speech", "Frontend Development"],
+    githubLink: "https://github.com/pujithchowdarys/Creative-Spark",
+    liveLink: "https://pujiverse-creative-spark.vercel.app/",
     imageUrl: "https://images.unsplash.com/photo-1620712948293-f852b7a40a6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    name: "Semantic Search Pipeline for LLM Workflows",
-    description: "Built and deployed embedding-based semantic search pipelines using vector databases like Pinecone and FAISS, achieving over 99% recall for semantic search tasks within LLM workflows, enhancing information retrieval.",
-    technologies: ["Pinecone", "FAISS", "Embeddings", "Python", "LLMs"],
-    githubLink: "https://github.com/PujithSakhamuri/semantic-search-engine",
-    imageUrl: "https://images.unsplash.com/photo-1606761245781-d1c0b3f54546?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    name: "Recipe Voice-over Generator",
+    description: "Generate cooking voice-overs from recipe steps and nutritional information in multiple languages.",
+    technologies: ["Gemini API", "Text-to-Speech", "NLP", "Multilingual Support", "Web Development"],
+    githubLink: "https://github.com/pujithchowdarys/Recipe-Voice-over-Generator",
+    liveLink: "https://pujiverse-recipe-voice-over-generat.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1556910110-fb2354c4f93b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    name: "Medical Image & Clinical NLP Diagnostics System",
-    description: "Designed and delivered AI-driven solutions combining computer vision and NLP. Developed models for medical imaging, patient note classification, and real-time diagnostics utilizing TensorFlow, PyTorch, SpaCy, NLTK, and Hugging Face Transformers.",
-    technologies: ["TensorFlow", "PyTorch", "OpenCV", "SpaCy", "NLTK", "Hugging Face Transformers", "GCP Vertex AI"],
-    githubLink: "https://github.com/PujithSakhamuri/medical-ai-diagnostics",
-    imageUrl: "https://images.unsplash.com/photo-1582719500479-ec0a8f9d0c24?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  },
-  // Websites & Web Applications (based on resume)
-  {
-    name: "Full-Stack E-commerce Web Application",
-    description: "Developed and maintained full-stack e-commerce web applications using Python frameworks (Django, Flask) and JavaScript frameworks (ReactJS, AngularJS). Focused on MVC architecture, RESTful APIs, and creating dynamic, responsive UIs.",
-    technologies: ["Python", "Django", "Flask", "ReactJS", "AngularJS", "HTML5", "CSS3", "JavaScript"],
-    githubLink: "https://github.com/PujithSakhamuri/fullstack-ecommerce",
-    liveLink: "https://ecommerce.pujiths.com",
-    imageUrl: "https://images.unsplash.com/photo-1563203920-569b91df1312?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    name: "YouTube Video Creator",
+    description: "Generate perfect YouTube video scripts, voiceovers, and background music for any category to streamline your content creation process.",
+    technologies: ["Gemini API", "Script Generation", "Text-to-Speech", "Content Creation Tools", "Web Development"],
+    githubLink: "https://github.com/pujithchowdarys/PujiVerse-Video-Content-Creator",
+    liveLink: "https://puji-verse-video-content-creator.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    name: "Scalable Data Ingestion & ETL Pipeline",
-    description: "Engineered and automated scalable data ingestion pipelines using Apache Spark, Airflow, and Sqoop. Successfully extracted and transformed large datasets from structured and semi-structured sources for analytics and business intelligence initiatives.",
-    technologies: ["Apache Spark", "Apache Airflow", "Sqoop", "Pandas", "NumPy", "SQL", "AWS EMR"],
-    githubLink: "https://github.com/PujithSakhamuri/data-pipeline-project",
-    liveLink: "https://datapipeline-demo.pujiths.com",
-    imageUrl: "https://images.unsplash.com/photo-1621252654166-701389e023ca?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    name: "Pujiverse Presentation Generator",
+    description: "Generate animated PowerPoint presentations with voiceovers and video on any topic using AI. Create slide content, generate a corresponding voiceover, and download PPTX, audio, and combined video.",
+    technologies: ["Gemini API", "Presentation Generation", "Text-to-Speech", "Video Generation", "AI/ML"],
+    githubLink: "https://github.com/pujithchowdarys/AI-Animated-Presentation-Generator",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
-    name: "Automated ML Workflow Orchestration (MLOps)",
-    description: "Implemented automated ML workflows using MLflow and Kubeflow, managing the full ML lifecycle from training to deployment within Azure Databricks and GCP Vertex AI environments, ensuring reproducibility and scalability.",
-    technologies: ["MLflow", "Kubeflow", "Docker", "Kubernetes", "Azure Databricks", "GCP Vertex AI", "CI/CD"],
-    githubLink: "https://github.com/PujithSakhamuri/mlops-workflow",
-    liveLink: "https://mlops-demo.pujiths.com",
-    imageUrl: "https://images.unsplash.com/photo-1627937397686-302ef3965b26?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    name: "Text-to-Video Generator",
+    description: "A sophisticated web application that transforms textual prompts into high-quality videos using the Gemini API. Users can specify aspect ratio and resolution for their creations.",
+    technologies: ["Gemini API", "Video Generation", "Frontend Development", "Prompt Engineering"],
+    githubLink: "https://github.com/pujithchowdarys/text-to-video",
+    liveLink: "https://pujiverse-text-to-video.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1579783902671-80a2569c766b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Movie Storyteller & Live AI",
+    description: "Generate movie stories, analyze video transcripts, engage in real-time conversations, and get answers using Gemini AI with text-to-speech narration.",
+    technologies: ["Gemini API", "Real-time AI", "Text-to-Speech", "NLP", "Video Analysis", "Conversational AI"],
+    githubLink: "https://github.com/pujithchowdarys/movie-subtitle-to-story",
+    liveLink: "https://pujiverse-subtitle-to-story.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1485846234647-a4365de4d0fb?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "PPT Voiceover Generator",
+    description: "Generates voiceovers for each 'slide' of text input, allowing playback and download.",
+    technologies: ["Gemini API", "Text-to-Speech", "Presentation Tools", "Audio Generation"],
+    githubLink: "https://github.com/pujithchowdarys/PPT-Voiceover-Generator",
+    liveLink: "https://pujiverse-ppt-voiceover-generator.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1522204523234-87295a78f598?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "VidPrompt Studio",
+    description: "A browser-based web app for video creators to upload videos, generate scripts and cut timeframes with AI, auto-trim/combine/narrate scenes, edit with an in-browser editor, and download the final video.",
+    technologies: ["Gemini API", "Video Editing", "Script Generation", "Content Creation", "AI/ML"],
+    githubLink: "https://github.com/pujithchowdarys/VidPrompt-Studio_new",
+    liveLink: "https://pujiverse-vid-prompt-studio-new.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1582234057038-164789b78345?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Smart Scene Cutter",
+    description: "An AI-powered web application to analyze video and intelligently cut scenes based on user descriptions.",
+    technologies: ["Gemini API", "Video Processing", "AI/ML", "Scene Detection"],
+    githubLink: "https://github.com/pujithchowdarys/SmartSceneCutter",
+    liveLink: "https://smart-scene-cutter.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1593642702821-c770c279d501?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Pujith Connects",
+    description: "A personal website centralizing Pujith Sakhamuri's online presence, including social media, projects, and contact information.",
+    technologies: ["Web Development", "Portfolio", "Social Media Integration", "Frontend Development"],
+    githubLink: "https://github.com/pujithchowdarys/Pujiverse",
+    liveLink: "https://pujiverse.vercel.app/",
+    imageUrl: "https://images.unsplash.com/photo-1504868584819-f8ed6d2187c7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    name: "Business Manager Pro",
+    description: "A comprehensive web application to manage daily business, chits, household expenses, and loans with insightful summary reports for financial tracking.",
+    technologies: ["Web Application", "Financial Management", "Reporting", "Dashboard", "Frontend Framework"],
+    githubLink: "https://github.com/pujithchowdarys/biz-manager",
+    liveLink: "https://biz-manager-eight.vercel.app/#/",
+    imageUrl: "https://images.unsplash.com/photo-1551288259-cd197931398c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 
@@ -179,7 +227,23 @@ export const CATEGORIZED_SOCIAL_MEDIA_LINKS: { [key: string]: SocialMedia[] } = 
       name: "Pujith on X",
       url: "https://x.com/Pujith_Sakhamuri",
       description: "Short updates and thoughts on tech and industry trends."
-    }
+    },
+    // New YouTube Handles
+    { platform: "YouTube", name: "@PujiVerseWisdom", url: "https://www.youtube.com/@PujiVerseWisdom", description: "Wisdom and insights channel." },
+    { platform: "YouTube", name: "@PujiVerseTech", url: "https://www.youtube.com/@PujiVerseTech", description: "Technology updates and tutorials." },
+    { platform: "YouTube", name: "@PujiVerseKids", url: "https://www.youtube.com/@PujiVerseKids", description: "Content for kids." },
+    { platform: "YouTube", name: "@PujiVerseBeatz", url: "https://www.youtube.com/@PujiVerseBeatz", description: "Music and beats channel." },
+    { platform: "YouTube", name: "@PujiVerseCine", url: "https://www.youtube.com/@PujiVerseCine", description: "Cinema and film related content." },
+    { platform: "YouTube", name: "@PujiVerseWorld", url: "https://www.youtube.com/@PujiVerseWorld", description: "Exploring the world." },
+    { platform: "YouTube", name: "@PujiVerseMythos", url: "https://www.youtube.com/@PujiVerseMythos", description: "Mythology and folklore stories." },
+    { platform: "YouTube", name: "@PujiVerseHistory", url: "https://www.youtube.com/@PujiVerseHistory", description: "Historical facts and documentaries." },
+    { platform: "YouTube", name: "@PujiVerseCalm", url: "https://www.youtube.com/@PujiVerseCalm", description: "Relaxation and calming content." },
+    { platform: "YouTube", name: "@PujiVerseWealth", url: "https://www.youtube.com/@PujiVerseWealth", description: "Financial and wealth management tips." },
+    { platform: "YouTube", name: "@PujiVerseFit", url: "https://www.youtube.com/@PujiVerseFit", description: "Fitness and health content." },
+    { platform: "YouTube", name: "@PujiVerseLingo", url: "https://www.youtube.com/@PujiVerseLingo", description: "Language learning and linguistics." },
+    { platform: "YouTube", name: "@PujiVerseTalks", url: "https://www.youtube.com/@PujiVerseTalks", description: "Talks and discussions on various topics." },
+    { platform: "YouTube", name: "@PujiVerseShorts", url: "https://www.youtube.com/@PujiVerseShorts", description: "Short video clips." },
+    { platform: "YouTube", name: "@pujiverseoffical", url: "https://www.youtube.com/@pujiverseoffical", description: "Official Pujiverse channel." }
   ],
   "Creative Outlets": [
     {
