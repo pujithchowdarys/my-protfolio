@@ -1,0 +1,7 @@
+{
+  "name": "My Professional Portfolio",
+  "description": "A comprehensive online portfolio showcasing IT career experience, projects, GitHub repositories, and social media presence.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
