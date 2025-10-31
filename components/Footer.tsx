@@ -8,7 +8,11 @@ import {
   FOOTER_SOCIAL_ICONS,
 } from '../constants';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onNavigate: (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const currentYear = new Date().getFullYear();
 
   // Helper to get a social media link by platform name
@@ -22,22 +26,21 @@ const Footer: React.FC = () => {
   };
 
   const quickLinks = [
-    { name: "Home", href: "#about" },
-    { name: "YouTube", href: getSocialMediaLink("YouTube") },
-    { name: "Instagram", href: getSocialMediaLink("Instagram") },
-    { name: "Facebook", href: getSocialMediaLink("Facebook") },
-    { name: "Telegram", href: getSocialMediaLink("Telegram") },
-    { name: "X", href: getSocialMediaLink("X") },
-    { name: "LinkedIn", href: getSocialMediaLink("LinkedIn") },
-    { name: "Contact", href: "#contact-details" },
+    { name: "Home", href: "#about", isInternal: true },
+    { name: "YouTube", href: "https://www.youtube.com/@PujiVerseTech", isInternal: false }, // Explicitly set YouTube channel
+    { name: "Instagram", href: "https://www.instagram.com/pujithchowdary_sakhamuri/", isInternal: false }, // Explicitly set Instagram
+    { name: "Facebook", href: "https://www.facebook.com/s.pujith369/", isInternal: false }, // Explicitly set Facebook
+    { name: "X", href: "https://x.com/pujithchowdary1", isInternal: false }, // Explicitly set X
+    { name: "LinkedIn", href: LINKEDIN_PROFILE, isInternal: false }, // Use constant for LinkedIn
+    { name: "Contact", href: "#contact-details", isInternal: true },
   ];
 
   const socialFollowLinks = [
-    { platform: "YouTube", name: "YouTube", url: getSocialMediaLink("YouTube") },
-    { platform: "Instagram", name: "Instagram", url: getSocialMediaLink("Instagram") },
-    { platform: "X", name: "X", url: getSocialMediaLink("X") },
-    { platform: "LinkedIn", name: "LinkedIn", url: getSocialMediaLink("LinkedIn") },
-    { platform: "Facebook", name: "Facebook", url: getSocialMediaLink("Facebook") },
+    { platform: "YouTube", name: "YouTube", url: "https://www.youtube.com/@PujiVerseTech" },
+    { platform: "Instagram", name: "Instagram", url: "https://www.instagram.com/pujithchowdary_sakhamuri/" },
+    { platform: "X", name: "X", url: "https://x.com/pujithchowdary1" },
+    { platform: "LinkedIn", name: "LinkedIn", url: LINKEDIN_PROFILE },
+    { platform: "Facebook", name: "Facebook", url: "https://www.facebook.com/s.pujith369/" },
     { platform: "Snapchat", name: "Snapchat", url: getSocialMediaLink("Snapchat") },
   ];
 
@@ -79,9 +82,24 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             {quickLinks.map((link, index) => (
               <li key={index}>
-                <a href={link.href} className="text-gray-300 hover:text-white transition-colors duration-200">
-                  {link.name}
-                </a>
+                {link.isInternal ? (
+                  <a
+                    href={link.href}
+                    onClick={(e) => onNavigate(e, link.href.substring(1))} // Remove '#' for targetId
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
+                    {link.name}
+                  </a>
+                )}
               </li>
             ))}
           </ul>

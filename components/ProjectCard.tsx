@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Project } from '../types';
+import { THUMIO_API_KEY } from '../constants'; // Import THUMIO_API_KEY for conditional checks
 
 interface ProjectCardProps {
   project: Project;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [imageError, setImageError] = useState(false);
+
+  // Determine fallback text based on whether a live link is present and API key is missing
+  const isThumioKeyMissing = THUMIO_API_KEY === 'YOUR_THUMIO_API_KEY_HERE' || !THUMIO_API_KEY;
+  const thumioErrorText = project.liveLink && isThumioKeyMissing
+    ? "THUMIO_API_KEY needed for live preview"
+    : "Image Not Available";
+  const fallbackImageSrc = `https://via.placeholder.com/1200x800.png?text=${encodeURIComponent(thumioErrorText)}`;
+
+
   return (
     <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out border border-gray-200 overflow-hidden h-full flex flex-col">
       <img
-        src={project.imageUrl}
+        src={imageError ? fallbackImageSrc : project.imageUrl}
         alt={project.name}
         className="w-full h-56 object-cover object-center aspect-video"
         loading="lazy"
+        onError={() => setImageError(true)}
       />
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-2xl font-semibold text-gray-800 mb-2">{project.name}</h3>

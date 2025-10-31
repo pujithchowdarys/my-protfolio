@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Section from './Section';
-import { PROFILE_NAME, ABOUT_ME_TEXT, PROFILE_IMAGE_SRC, DEFAULT_PROFILE_IMAGE_SVG_BASE64 } from '../constants';
+import { PROFILE_NAME, ABOUT_ME_TEXT, PROFILE_IMAGE_SRC } from '../constants';
 
 interface AboutSectionProps {
   isActive: boolean;
@@ -9,7 +9,11 @@ interface AboutSectionProps {
 const AboutSection: React.FC<AboutSectionProps> = ({ isActive }) => {
   if (!isActive) return null;
 
-  const [imageLoadError, setImageLoadError] = useState(false);
+  // State to handle image loading errors for the profile picture
+  const [imageError, setImageError] = useState(false);
+
+  // Fallback image source if the primary image fails to load
+  const fallbackImageSrc = "https://via.placeholder.com/256/E0E0E0/757575?text=Profile+Image"; // A generic placeholder image
 
   return (
     <>
@@ -19,10 +23,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isActive }) => {
           {/* Profile Image */}
           <div className="mb-6 animate-opacity-in">
             <img
-              src={imageLoadError ? DEFAULT_PROFILE_IMAGE_SVG_BASE64 : PROFILE_IMAGE_SRC}
+              src={imageError ? fallbackImageSrc : PROFILE_IMAGE_SRC}
               alt={`${PROFILE_NAME} profile`}
               className="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover shadow-2xl border-4 border-yellow-300 transition-transform duration-500 hover:scale-105 bg-gray-200 p-2"
-              onError={() => setImageLoadError(true)}
+              onError={() => setImageError(true)}
             />
           </div>
 

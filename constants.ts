@@ -4,11 +4,8 @@ export const PROFILE_NAME = "Pujith Sakhamuri";
 export const ABOUT_ME_TEXT = `Hello! I'm Pujith Sakhamuri, a Data Engineer with over 6 years of experience in designing and implementing scalable machine learning models, data pipelines, and AI-driven solutions. I have a strong background in Python, R, Scala, and Java, specializing in Machine Learning, Deep Learning, Natural Language Processing (NLP), Computer Vision, Generative AI, and Big Data Engineering. My expertise spans end-to-end ML/AI workflows, MLOps, containerized deployments, and robust data management. I am passionate about leveraging technology to build innovative solutions and continuously expand my skills in the IT world.`;
 
 // Profile image path. Please save your profile image as 'profile.jpg' and
-// place it in the 'media/' folder at the root of your project.
-export const PROFILE_IMAGE_SRC = './media/profile.jpg';
-
-// Base64 encoded SVG for a default profile image fallback
-export const DEFAULT_PROFILE_IMAGE_SVG_BASE64 = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My4wcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0iY3VycmVudENvbG9yIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGQ9Ik0xMiAwYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyYzYuNjI3IDAgMTItNS4zNzMgMTItMTJTMTguNjI3IDAgMTIgMHptMCAyLjljNC42OTQgMCA4LjUgMy44MDYgOC41IDguNXMtMy44MDYgOC41LTguNSA4LjUtOC41LTMuODA2LTguNS04LjVTNy4zMDYgMi45IDEyIDIuOXptMCAzLjZjLTEuOTMzIDAtMy41IDEuNTY3LTMuNSAzLjVzMS41NjcgMy41IDMuNSAzLjUgMy41LTEuNTY3IDMuNS0zLjVjMC0xLjkzMy0xLjU2Ny0zLjUtMy41LTMuNXptMCAxMi4zYzMtMS42MzEgNC4wNzctNC44NzEgNC4wNzctNi4yMjQg0C0uNjUzLS40NzQtMi41NjktMS40NzctMi41NjktLjk3MSAwLTIuNzg2LTMuNzU0LTIuNzg2LTMuNzU0UzcuNjU0IDE0LjE3MiA2LjUxNSAxNS44MDdDOTYuNTc4IDIwLjE4NCAxMCAyMC4wMiAxMiAxOC44eiIvPjwvc3ZnPg==';
+// place it in the 'media/' folder at the root of your project on GitHub.
+export const PROFILE_IMAGE_SRC = 'https://raw.githubusercontent.com/pujithchowdarys/my-protfolio/main/media/profile.jpg';
 
 export const CAREER_EXPERIENCE: Experience[] = [
   {
@@ -106,7 +103,12 @@ export const CAREER_EXPERIENCE: Experience[] = [
   }
 ];
 
-export const PROJECTS: Project[] = [
+// Retrieve THUMIO_API_KEY from environment variables
+export const THUMIO_API_KEY = process.env.THUMIO_API_KEY;
+const THUMIO_BASE_URL = 'https://image.thum.io/get/width/1200/crop/800/noanimate/';
+
+// Original project list
+const originalProjects: Project[] = [
   {
     name: "My Professional Portfolio",
     description: "A comprehensive online portfolio showcasing IT career experience, projects, GitHub repositories, and social media presence, including an AI assistant.",
@@ -204,6 +206,24 @@ export const PROJECTS: Project[] = [
   }
 ];
 
+export const PROJECTS: Project[] = originalProjects.map(project => {
+  if (project.liveLink) {
+    let screenshotUrl = `https://via.placeholder.com/1200x800.png?text=Live+Link+Preview+Unavailable`;
+    if (THUMIO_API_KEY && THUMIO_API_KEY !== 'YOUR_THUMIO_API_KEY_HERE') {
+      screenshotUrl = `${THUMIO_BASE_URL}auth/${THUMIO_API_KEY}/${project.liveLink}`;
+    } else {
+      // This path already explicitly states the API key is needed.
+      screenshotUrl = `https://via.placeholder.com/1200x800.png?text=Live+Link+Preview+Unavailable+(Configure+THUMIO_API_KEY)`;
+    }
+    return { ...project, imageUrl: screenshotUrl };
+  }
+  // If no liveLink, keep original imageUrl or use a generic placeholder
+  return {
+    ...project,
+    imageUrl: project.imageUrl || "https://via.placeholder.com/1200x800.png?text=No+Live+Link+or+Image"
+  };
+});
+
 export const CATEGORIZED_SOCIAL_MEDIA_LINKS: { [key: string]: SocialMedia[] } = {
   "Professional Networks": [
     {
@@ -217,20 +237,20 @@ export const CATEGORIZED_SOCIAL_MEDIA_LINKS: { [key: string]: SocialMedia[] } = 
   "Content & Community": [
     {
       platform: "YouTube",
-      name: "Pujith's Tech Channel",
-      url: "https://www.youtube.com/@PujithTech",
-      description: "Tutorials and insights on AI, ML, and data engineering.",
+      name: "@PujiVerseTech", // Changed to explicitly match prompt's desired channel
+      url: "https://www.youtube.com/@PujiVerseTech",
+      description: "Technology updates and tutorials on AI, ML, and data engineering.",
       icon: "M10 15l5.19-3L10 9v6m11.5-7.5c-.1 1.7-.1 3.3 0 5-.2 1.4-.4 2.8-.7 4.1-.3 1.3-.7 2.4-1.2 3.5-.5 1.1-1.1 2-1.9 2.8-.8.8-1.7 1.4-2.8 1.9-1.1.5-2.2.9-3.5 1.2-1.3.3-2.7.5-4.1.7-1.7.1-3.3.1-5 0-1.4-.2-2.8-.4-4.1-.7-1.3-.3-2.4-.7-3.5-1.2-1.1-.5-2-1.1-2.8-1.9-.8-.8-1.4-1.7-1.9-2.8-.5-1.1-.9-2.2-1.2-3.5-.3-1.3-.5-2.7-.7-4.1-.1-1.7-.1-3.3 0-5 .2-1.4.4-2.8.7-4.1.3-1.3.7-2.4 1.2-3.5.5-1.1 1.1-2 1.9-2.8.8-.8 1.7-1.4 2.8-1.9 1.1-.5 2.2-.9 3.5-1.2 1.3-.3 2.7-.5 4.1-.7 1.7-.1 3.3-.1 5 0 1.4.2 2.8.4 4.1.7 1.3.3 2.4.7 3.5 1.2 1.1.5 2 1.1 2.8 1.9.8.8 1.4 1.7 1.9 2.8.5 1.1.9 2.2 1.2 3.5.3 1.3.5 2.7.7 4.1z"
     },
     {
       platform: "X",
       name: "Pujith on X",
-      url: "https://x.com/Pujith_Sakhamuri",
+      url: "https://x.com/pujithchowdary1", // Updated X URL
       description: "Short updates and thoughts on tech and industry trends."
     },
     // New YouTube Handles
     { platform: "YouTube", name: "@PujiVerseWisdom", url: "https://www.youtube.com/@PujiVerseWisdom", description: "Wisdom and insights channel." },
-    { platform: "YouTube", name: "@PujiVerseTech", url: "https://www.youtube.com/@PujiVerseTech", description: "Technology updates and tutorials." },
+    // Removed duplicate PujiVerseTech as it's now the main 'YouTube' entry above
     { platform: "YouTube", name: "@PujiVerseKids", url: "https://www.youtube.com/@PujiVerseKids", description: "Content for kids." },
     { platform: "YouTube", name: "@PujiVerseBeatz", url: "https://www.youtube.com/@PujiVerseBeatz", description: "Music and beats channel." },
     { platform: "YouTube", name: "@PujiVerseCine", url: "https://www.youtube.com/@PujiVerseCine", description: "Cinema and film related content." },
@@ -249,15 +269,14 @@ export const CATEGORIZED_SOCIAL_MEDIA_LINKS: { [key: string]: SocialMedia[] } = 
     {
       platform: "Instagram",
       name: "Pujith's Instagram",
-      url: "https://www.instagram.com/pujith_sakhamuri/",
+      url: "https://www.instagram.com/pujithchowdary_sakhamuri/", // Updated Instagram URL
       description: "Personal snapshots and occasional tech-related visual content.",
       icon: "M7.8 2h8.4C17.684 2 18 2.316 18 3.4v8.4c0 1.084-.316 1.4-1.4 1.4H7.8C6.716 13.2 6 12.884 6 11.8V3.4C6 2.316 6.316 2 7.8 2zm0 1.4a.4.4 0 00-.4.4v7.6c0 .22.18.4.4.4h7.6a.4.4 0 00.4-.4V3.8a.4.4 0 00-.4-.4H7.8zM12 5.6a3.2 3.2 0 100 6.4 3.2 3.2 0 000-6.4zm0 1.4a1.8 1.8 0 110 3.6 1.8 1.8 0 010-3.6zM15.4 3.8a.7.7 0 11-1.4 0 .7.7 0 011.4 0z"
     }
   ],
   // Added for footer quick links and follow me section
   "General Socials": [
-    { platform: "Facebook", name: "Facebook Profile", url: "https://facebook.com/PujithSakhamuriOfficial", description: "Connect on Facebook." },
-    { platform: "Telegram", name: "Telegram Channel", url: "https://t.me/PujithSakhamuriOfficial", description: "Join my Telegram channel." },
+    { platform: "Facebook", name: "Facebook Profile", url: "https://www.facebook.com/s.pujith369/", description: "Connect on Facebook." }, // Updated Facebook URL
     { platform: "Snapchat", name: "Snapchat Profile", url: "https://snapchat.com/add/PujithSakhamuri", description: "Follow me on Snapchat." },
   ],
 };
@@ -292,11 +311,6 @@ export const FOOTER_SOCIAL_ICONS: { [platform: string]: { path: string; color: s
     path: "M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.812c-3.311 0-4.188 1.328-4.188 4v2z",
     color: "text-blue-700",
     hoverColor: "hover:text-blue-500"
-  },
-  Telegram: {
-    path: "M18.364 3.518l-1.68 7.352 5.096 4.673-2.023.957-4.223-2.016-1.026 4.793-1.895-.407 1.455-6.793-6.526-3.109-1.391.66 4.88-2.316-.273-1.282zm-.924 1.096l-11.75 5.589 1.956.929 11.75-5.589-1.956-.929z",
-    color: "text-blue-400",
-    hoverColor: "hover:text-blue-200"
   },
   Snapchat: {
     path: "M11.996 0c-6.627 0-12 4.093-12 9.141 0 3.064 1.549 5.864 4.018 7.625.326.231.597.47.818.708 1.487 1.621 3.242 3.193 4.896 4.542.441.365 1.01.534 1.734.534.722 0 1.29-.168 1.732-.533 1.654-1.35 3.409-2.922 4.896-4.543.221-.237.493-.476.818-.707 2.469-1.761 4.019-4.561 4.019-7.625 0-5.048-5.373-9.141-12-9.141zm-.004 1.579c5.235 0 9.5 3.228 9.5 7.562 0 2.536-1.312 4.858-3.696 6.551-.318.225-.572.457-.779.673-1.42 1.54-3.09 3.04-4.66 4.331-.383.315-.884.457-1.365.457-.482 0-.983-.142-1.366-.457-1.57-1.29-3.24-2.791-4.66-4.332-.207-.216-.461-.448-.779-.672-2.384-1.693-3.696-4.015-3.696-6.55 0-4.334 4.265-7.562 9.5-7.562z",

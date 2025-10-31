@@ -12,7 +12,7 @@ const SocialMediaLink: React.FC<SocialMediaLinkProps> = ({ link }) => {
       case 'Facebook': return 'text-blue-600';
       case 'Instagram': return 'text-pink-600';
       case 'LinkedIn': return 'text-blue-700';
-      case 'X': return 'text-gray-800'; // Assuming 'X' (Twitter) is dark themed or neutral
+      case 'X': return 'text-gray-700'; // Changed from 'text-gray-800' to a slightly lighter gray for better contrast
       default: return 'text-gray-600';
     }
   };

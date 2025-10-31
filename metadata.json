@@ -3,5 +3,8 @@
   "description": "A comprehensive online portfolio showcasing IT career experience, projects, GitHub repositories, and social media presence.",
   "requestFramePermissions": [
     "microphone"
-  ]
+  ],
+  "env": {
+    "THUMIO_API_KEY": "YOUR_THUMIO_API_KEY_HERE"
+  }
 }
